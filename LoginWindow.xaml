@@ -1,0 +1,57 @@
+<Window x:Class="Apteka.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:l="clr-namespace:Apteka"
+        Title="{l:Tr 'Вход'}" Width="480" SizeToContent="Height"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <!-- Look of the teacher's sample (Figure 5): header with key, blue body, status line at the bottom.
+         The colors are fixed on purpose, so the form looks the same in every theme. -->
+    <DockPanel Background="#B9D1EA" TextElement.Foreground="Black">
+
+        <!-- Status line: input language and CapsLock -->
+        <Border DockPanel.Dock="Bottom" BorderBrush="#8FA9C8" BorderThickness="0,1,0,0" Padding="4,3">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="230"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="TxtLang"/>
+                <TextBlock x:Name="TxtCaps" Grid.Column="1"/>
+            </Grid>
+        </Border>
+
+        <StackPanel>
+            <l:KeyHeader x:Name="Header"/>
+
+            <Grid Margin="8,22,8,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="170"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="{l:Tr 'Имя пользователя'}" VerticalAlignment="Center" Margin="0,0,8,14"/>
+                <TextBox x:Name="TxtLogin" Grid.Column="1" Margin="0,0,0,14" Padding="2,3"/>
+                <TextBlock Grid.Row="1" Text="{l:Tr 'Пароль'}" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                <PasswordBox x:Name="TxtPass" Grid.Row="1" Grid.Column="1" Padding="2,3"/>
+            </Grid>
+
+            <Grid Margin="8,22,8,0">
+                <Button Content="{l:Tr 'Вход'}" IsDefault="True" HorizontalAlignment="Left"
+                        Width="104" Padding="0,4" Click="Login_Click"/>
+                <Button Content="{l:Tr 'Отмена'}" IsCancel="True" HorizontalAlignment="Right"
+                        Width="104" Padding="0,4" Click="Cancel_Click"/>
+            </Grid>
+
+            <Grid Margin="8,16,8,12">
+                <Button Content="{l:Tr 'Войти как гость'}" HorizontalAlignment="Left" Padding="10,3" Click="Guest_Click"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock Text="{l:Tr 'Язык интерфейса'}" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                    <ComboBox x:Name="CmbLang" Width="110" DisplayMemberPath="Native" SelectionChanged="Lang_Changed"/>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </DockPanel>
+</Window>

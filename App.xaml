@@ -1,0 +1,7 @@
+<Application x:Class="Apteka.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- No StartupUri: App.OnStartup loads settings and applies the theme first,
+         then opens LoginWindow. Theme brushes/styles are added in code (ThemeManager). -->
+    <Application.Resources/>
+</Application>
